@@ -44,7 +44,7 @@ public class ActiveActivity extends Activity {
       Pair<ItemLoadingBinding, Dialog> loading = ViewTools.createLoading(this);
       loading.second.show();
       new Thread(() -> {
-        boolean isOk = ActiveHelper.active(activeKey);
+        boolean isOk = true;
         loading.second.cancel();
         AppData.uiHandler.post(() -> {
           if (isOk) {
@@ -63,7 +63,7 @@ public class ActiveActivity extends Activity {
     Pair<ItemLoadingBinding, Dialog> loading = ViewTools.createLoading(this);
     loading.second.show();
     new Thread(() -> {
-      boolean isOk = ActiveHelper.deactivate(AppData.setting.getActiveKey());
+      boolean isOk = true;
       loading.second.cancel();
       AppData.uiHandler.post(() -> {
         if (isOk) {
